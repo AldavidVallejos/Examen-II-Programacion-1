@@ -1,33 +1,39 @@
-
 /**
- * Write a description of class Principal here.
+ * Clase donde inicia el programa.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (David Vallejos)
+ * @version (25/11/2020)
  */
 public class Principal
 {
-    // instance variables - replace the example below with your own
-    private int x;
 
     /**
      * Constructor for objects of class Principal
      */
     public Principal()
     {
-        // initialise instance variables
-        x = 0;
+
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Instancia una vista, una ListaEstudiantes, un Grupo  y un Controlador para ejecutar el programa. 
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param
+     * @return
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public static void main(String args []){
+        Vista miVista=new Vista();
+        ListaEstudiantes miListaEstudiantes=new ListaEstudiantes();
+        Grupo miGrupo=new Grupo();
+        Controlador miControlador=new Controlador(miVista,miListaEstudiantes,miGrupo);
+        miControlador.iniciar();
+
+        ListaNotas miLista=new ListaNotas();
+        miLista.agregarAlInicio(10);
+        miLista.agregarAlInicio(40);
+        
+        Estudiante miEstudiante=new Estudiante();
+        miEstudiante.setCalificaciones(miLista);
+        System.out.println(miEstudiante.getPromedio(miLista));
     }
 }
