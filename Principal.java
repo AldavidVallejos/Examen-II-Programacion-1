@@ -22,11 +22,11 @@ public class Principal
      * @return
      */
     public static void main(String args []){
-       Vista miVista=new Vista();
+        Vista miVista=new Vista();
         ListaEstudiantes miListaEstudiantes=new ListaEstudiantes();
         Grupo miGrupo=new Grupo();
         Controlador miControlador=new Controlador(miVista,miListaEstudiantes,miGrupo);
         miControlador.iniciar();
-       
+
     }
 }

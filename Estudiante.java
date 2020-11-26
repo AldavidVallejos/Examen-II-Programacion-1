@@ -1,4 +1,14 @@
-
+/**
+ * Clase del nodo Nota.
+ *
+ * @author (David Vallejos)
+ * @version (25/11/2020)
+ /**
+ * Clase del nodo Estudiante.
+ *
+ * @author (David Vallejos)
+ * @version (25/11/2020)
+ */
 public class Estudiante
 {
     String nombre;
@@ -18,14 +28,14 @@ public class Estudiante
 
     public void setEstudianteSiguiente(Estudiante miEstudiante)
     {
-    estudianteSiguiente=miEstudiante;
+        estudianteSiguiente=miEstudiante;
     }
-    
+
     public Estudiante getEstudianteSiguiente()
     {
-    return estudianteSiguiente;
+        return estudianteSiguiente;
     }
-    
+
     public void setNombre(String miNombre)
     {
         nombre=miNombre;

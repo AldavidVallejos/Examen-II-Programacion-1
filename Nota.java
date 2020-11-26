@@ -1,5 +1,4 @@
 
-
 /**
  * Clase del nodo Nota.
  *
@@ -21,26 +20,24 @@ public class Nota
         notaSiguiente=null;
     }
 
-    
     public void setValor(int miNota)
     {
         valor=miNota;
     }
-    
+
     public void setNotaSiguiente(Nota siguiente)
     {
         this.notaSiguiente = siguiente;
     }
-    
+
     public int getValor()
     {
         return valor;
     }
-    
+
     public Nota getNotaSiguiente()
     {
         return notaSiguiente;
     }
-    
-    
+
 }

@@ -11,6 +11,8 @@ public class Controlador
     ListaEstudiantes listaEstudiantesInterna;
     Grupo grupoInterno;
 
+    ListaEstudiantes listaEstudiantesModificada;
+    
     /**
      * Constructor for objects of class Controlador
      */
@@ -29,10 +31,9 @@ public class Controlador
         {
             vistaInterna.capturaNombre();
             String nuevoNombre=vistaInterna.getEntradaTextoDeUsuario();
-            
+
             vistaInterna.capturaCarnet();
             int nuevoCarnet=vistaInterna.getEntradaNumericaDeUsuario();
-            
 
             int indicador2=0;
             ListaNotas nuevaListaNotas=new ListaNotas();
@@ -44,15 +45,36 @@ public class Controlador
                 vistaInterna.mensajeContinuar2();
                 indicador2=vistaInterna.getEntradaNumericaDeUsuario();
             } 
-            
 
             vistaInterna.mensajeContinuar1();
             indicador1=vistaInterna.getEntradaNumericaDeUsuario();
-            
-            listaEstudiantesInterna.agregarAlFinal(nuevoNombre, nuevoCarnet, nuevaListaNotas);
+
+            listaEstudiantesInterna.reordenarAlfabeticamente(nuevoNombre, nuevoCarnet, nuevaListaNotas);
         }
 
-        vistaInterna.retornar(listaEstudiantesInterna.getInicio().toString());
-        vistaInterna.retornar(listaEstudiantesInterna.getInicio().getEstudianteSiguiente().toString());
+        vistaInterna.retornar(listaEstudiantesInterna.toString());
+
+        vistaInterna.menu();
+        switch(vistaInterna.getEntradaNumericaDeUsuario())
+        {case 0:
+
+            ListaEstudiantes listaEstudiantesModificada=new ListaEstudiantes();
+            listaEstudiantesModificada.reordenarPorPromedios(listaEstudiantesInterna.getInicio().getNombre(),listaEstudiantesInterna.getInicio().getCarnet(),listaEstudiantesInterna.getInicio().getCalificaciones());
+            Estudiante aux=new Estudiante();
+            aux=listaEstudiantesInterna.getInicio();
+            while(aux.getEstudianteSiguiente()!=null)
+            {
+                listaEstudiantesModificada.reordenarPorPromedios(aux.getEstudianteSiguiente().getNombre(),aux.getEstudianteSiguiente().getCarnet(),aux.getEstudianteSiguiente().getCalificaciones());
+
+                aux=aux.getEstudianteSiguiente();
+            }
+            vistaInterna.retornar(listaEstudiantesModificada.toString());
+            break;
+
+            case 1:
+            break;
+        }
+
     }
+
 }

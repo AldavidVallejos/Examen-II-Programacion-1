@@ -1,10 +1,17 @@
 import javax.swing.JOptionPane;
-
+/**
+ * Clase que interactua con el usuario.
+ *
+ * @author (David Vallejos)
+ * @version (25/11/2020)
+ */
 public class Vista
 {
     Object[]botones={"Agregar","Completo", "Salir"};
+    Object[]botones2={"Ordenar por Promedios","Buscar estudiantes a partir de una nota", "Salir"};
     
-   //variable encargada de recolectar la información numérica del usuario
+    
+    //variable encargada de recolectar la información numérica del usuario
     private int entradaNumericaDeUsuario;
 
     //variable encargada de recolectar la información de texto del usuario
@@ -18,7 +25,6 @@ public class Vista
         return entradaNumericaDeUsuario;
     }
 
-    
     /**
      * Permite asignar la entradaNumericaDeUsuario
      * @return
@@ -42,12 +48,12 @@ public class Vista
     public void setEntradaTextoDeUsuario(String nuevaEntradaTexto){
         this.entradaTextoDeUsuario=nuevaEntradaTexto;
     }
-    
+
     public void capturaCarnet()
     {
-    do{
+        do{
             entradaTextoDeUsuario=JOptionPane.showInputDialog(null, "Ingrese el carnet del Estudiante:");
-            
+
             if(entradaTextoDeUsuario==null){
                 confirmacionDeSalida();
                 if(entradaNumericaDeUsuario==-2){
@@ -57,12 +63,12 @@ public class Vista
             entradaNumericaDeUsuario=Integer.valueOf(entradaTextoDeUsuario);
         }while(entradaTextoDeUsuario.equals("vacio"));
     }
-    
+
     public void capturaNota()
     {
-    do{
+        do{
             entradaTextoDeUsuario=JOptionPane.showInputDialog(null, "Ingrese una de las notas del estudiante:");
-            
+
             if(entradaTextoDeUsuario==null){
                 confirmacionDeSalida();
                 if(entradaNumericaDeUsuario==-2){
@@ -71,9 +77,9 @@ public class Vista
             }
             entradaNumericaDeUsuario=Integer.valueOf(entradaTextoDeUsuario);
         }while(entradaTextoDeUsuario.equals("vacio"));
-        
+
     }
-    
+
     /**
      * Ventana para indicar el nombre del estudiante
      * Si la entrada no es válida se pregunta si se desea salir del juego. Si no se desea finalizar se pregunta de nuevo por la información
@@ -90,7 +96,7 @@ public class Vista
             }
         }while(entradaTextoDeUsuario.equals("vacio"));
     }
-    
+
     /**
      * Ventana para confirmar salida del juego
      * Si se confirma la salida la ejecución finaliza
@@ -101,24 +107,29 @@ public class Vista
             System.exit(0);
         }else{entradaNumericaDeUsuario=-2;}
     }
-    
-    
+
     public void mensajeContinuar2()
     {
-    entradaNumericaDeUsuario=JOptionPane.showOptionDialog(null, "Indique si desea añadir otra calificación o si el reporte de calificaciones está completo",
+        entradaNumericaDeUsuario=JOptionPane.showOptionDialog(null, "Indique si desea añadir otra calificación o si el reporte de calificaciones está completo",
             "Menú principal",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE,null,botones,botones[0]);    
 
     }
-    
+
     public void mensajeContinuar1()
     {
-    entradaNumericaDeUsuario=JOptionPane.showOptionDialog(null, "Indique si desea añadir otro estudiante o si el la lista está completa",
+        entradaNumericaDeUsuario=JOptionPane.showOptionDialog(null, "Indique si desea añadir otro estudiante o si el la lista está completa",
             "Menú principal",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE,null,botones,botones[0]);    
 
     }
 
-public void retornar(String mensaje)
-{
-JOptionPane.showMessageDialog(null,mensaje);
-}
+    public void retornar(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
+    }
+
+    public void menu()
+    {
+        entradaNumericaDeUsuario=JOptionPane.showOptionDialog(null, "Indique la opción que desea ejecutar:",
+            "Menú principal",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE,null,botones2,botones2[0]); 
+    }
 }
