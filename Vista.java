@@ -116,4 +116,9 @@ public class Vista
             "Menú principal",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.WARNING_MESSAGE,null,botones,botones[0]);    
 
     }
+
+public void retornar(String mensaje)
+{
+JOptionPane.showMessageDialog(null,mensaje);
+}
 }

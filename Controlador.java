@@ -24,30 +24,35 @@ public class Controlador
     public void iniciar()
     {
         int indicador1=0;
+
         while(indicador1==0)
         {
-            Estudiante nuevoEstudiante=new Estudiante();
             vistaInterna.capturaNombre();
-            nuevoEstudiante.setNombre(vistaInterna.getEntradaTextoDeUsuario());
+            String nuevoNombre=vistaInterna.getEntradaTextoDeUsuario();
             
             vistaInterna.capturaCarnet();
-            nuevoEstudiante.setCarnet(vistaInterna.getEntradaNumericaDeUsuario());
+            int nuevoCarnet=vistaInterna.getEntradaNumericaDeUsuario();
             
-            
+
             int indicador2=0;
             ListaNotas nuevaListaNotas=new ListaNotas();
             while(indicador2==0)
-               {
-                   vistaInterna.capturaNota();
-                   nuevaListaNotas.agregarAlFinal(vistaInterna.getEntradaNumericaDeUsuario());
-                   
+            {
+                vistaInterna.capturaNota();
+                nuevaListaNotas.agregarAlFinal(vistaInterna.getEntradaNumericaDeUsuario());
+
                 vistaInterna.mensajeContinuar2();
-            indicador2=vistaInterna.getEntradaNumericaDeUsuario();
+                indicador2=vistaInterna.getEntradaNumericaDeUsuario();
             } 
-            nuevoEstudiante.setCalificaciones(nuevaListaNotas);
             
+
             vistaInterna.mensajeContinuar1();
             indicador1=vistaInterna.getEntradaNumericaDeUsuario();
+            
+            listaEstudiantesInterna.agregarAlFinal(nuevoNombre, nuevoCarnet, nuevaListaNotas);
         }
+
+        vistaInterna.retornar(listaEstudiantesInterna.getInicio().toString());
+        vistaInterna.retornar(listaEstudiantesInterna.getInicio().getEstudianteSiguiente().toString());
     }
 }

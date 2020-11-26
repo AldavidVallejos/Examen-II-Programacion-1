@@ -5,6 +5,11 @@ public class ListaEstudiantes
     private Estudiante inicio;
     private int tamanio;
 
+    public Estudiante getInicio()
+    {
+    return inicio;
+    }
+    
     public void ListaEstudiantes()
     {
         inicio = null;
@@ -69,7 +74,20 @@ public class ListaEstudiantes
     }
 
     public void reordenarPorPromedios()
-    {}
+    {
+    }
+
+    public String toString(int posición)
+    {
+        Estudiante auxiliar=inicio;
+        String cadena=inicio.toString();
+        while(auxiliar.getEstudianteSiguiente()!=null)
+        {
+            cadena+="\n"+auxiliar.getEstudianteSiguiente().toString();
+        }
+        
+        return cadena;
+    }
 
     /*
     public void agregarAlInicio(int valor)
